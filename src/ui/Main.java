@@ -1,5 +1,6 @@
 package ui;
 
+import java.util.Date;
 import java.util.Scanner;
 
 import exceptions.AgeException;
@@ -78,6 +79,10 @@ public class Main {
 		
 //		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
+		Date date = new Date();
+		int today = date.getDate();
+		System.out.println("\n--Today's date: " + today);
+		
 		store.setEntryAttempts(store.getEntryAttempts() + 1);
 		
 		System.out.print("\nInput ID type: ");
@@ -87,21 +92,15 @@ public class Main {
 		String id = sc.nextLine();
 		
 		try {
-			store.validAge(type);
-		} catch (AgeException e) {
-//			System.out.println("\n---Client must be over 18 to enter store");
-			e.printStackTrace();
-		}
-		
-		try {
-			store.validDay(id);
-		} catch (DayException e) {
-			e.printStackTrace();
-		}
-		
-		if(store.add(type, id)) {
+			if(store.add(type, id)) {
+				
+				System.out.println("\n--Client registered successfully");
+			}
+		} catch (AgeException | DayException e) {
 			
-			System.out.println("\n--Client registered successfully");
+			System.out.println("\n--Client couldn't be registered");
+			
+			e.printStackTrace();
 		}
 	}
 	
