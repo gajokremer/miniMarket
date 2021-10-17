@@ -66,7 +66,7 @@ public class Store {
 //		} 
 	}
 	
-	public boolean validDay(String id) throws DayException {
+	public boolean validDay(String id) {
 		
 		boolean valid = false;
 

@@ -37,16 +37,18 @@ class StoreTest {
 	}
 	
 	@Test
-	public void testAgeException() throws AgeException, DayException {
+	public void testAgeException() {
 		
 		setUpScenario1();
 		
 		String t = "TI";
 		String i = "7010991649";
 
-		Person p = new Person(t, i);
-		
-//		assertFalse(store.add(t, i));
+		try {
+			assertFalse(store.add(t, i));
+		} catch (AgeException | DayException e) {
+			e.printStackTrace();
+		}
 		
 		assertThrows(AgeException.class, () -> {
 
@@ -55,16 +57,18 @@ class StoreTest {
 	}
 
 	@Test
-	public void testDayException() throws AgeException, DayException {
+	public void testDayException() {
 		
 		setUpScenario1();
 		
 		String t = "PP";
 		String i = "0621220734";
 		
-		Person p = new Person(t, i);
-		
-//		assertFalse(store.add(t, i));
+		try {
+			assertFalse(store.add(t, i));
+		} catch (AgeException | DayException e) {
+			e.printStackTrace();
+		}
 		
 		assertThrows(DayException.class, () -> {
 			
