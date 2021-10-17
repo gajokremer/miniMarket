@@ -1,7 +1,5 @@
 package model;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -96,6 +94,9 @@ public class Store {
 			System.out.println("even day");
 
 			if(digit % 2 != 0) {
+				
+				System.out.println("odd digit");
+				System.out.println(digit % 2);
 
 				valid = true;
 				
@@ -111,7 +112,7 @@ public class Store {
 			if(digit % 2 == 0) {
 				
 				System.out.println("even digit");
-				System.out.println(digit%2);
+				System.out.println(digit % 2);
 
 				valid = true;
 				
